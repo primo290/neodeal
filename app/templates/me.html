@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des VIPs - Neodeal</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .fas  { font-size: 25px;
+        color: darkorange;
+
+    }
+</style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Image -->
+    
+    <div class="container mx-auto p-6 mb-20"> <!-- Ajoutez mb-20 pour l'espace -->
+       <h6 class="text-2xl font-semibold text-center mb-8"> Votre numéro est le : <br> +{{user.telephone}}</h6> 
+                      <!-- Bottom Taskbar reste inchangé -->
+    </div>
+    <button class="flex items-center text-black font-bold"><a href="{% url 'deposit' %}">depot</a></button>
+            
+    
+    
+        <!-- Bottom Taskbar -->
+        <!-- Barre de navigation en bas -->
+    <div class="fixed bottom-0 left-0 w-full bg-white shadow-md p-4">
+        <div class="flex justify-around">
+            <button class="flex items-center text-black font-bold"><a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'historique' %}"><i class="fas fa-history mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-cog mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'me' %}"><i class="fas fa-user mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-users mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-sign-out-alt mr-2"></i></a></button>
+        </div>
+    </div>
+    
+        
+        
+    </div>
+
+</body>
+
+</html>
