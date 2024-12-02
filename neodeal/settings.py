@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-e1$ega418xhucx%7!a$h(jh9bu&obb_i81ggd=lfd19f#6)ru*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['neodeal-vgk2tlg6.b4a.run']
 
 
 # Application definition
