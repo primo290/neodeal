@@ -10,6 +10,9 @@ urlpatterns = [
     path('',views.home,name="home"),
     path('login/', views.login_view, name='login'),
     path('vip/',views.vip,name="vip"),
+    
+    path('vip/<int:vip_id>/', views.vip_detail, name='vip'),
+    path('pay/<int:vip_id>/',views.payer,name="payer"),
     path('setting/',views.setting,name="setting"),
     path('historique/',views.historique,name="historique"),
     path('deposit/',views.deposit,name="deposit"),

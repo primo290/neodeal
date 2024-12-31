@@ -34,8 +34,21 @@
                 <p class="text-gray-600">Revenu Journalier: <strong>{{ vip.revenu_journalier }} FCFA</strong></p>
                 <p class="text-gray-600">Revenu Annuel: <strong>{{ vip.revenu_annuel }} FCFA</strong></p>
                 <p class="text-gray-600">Durée de Vie: <strong>{{ vip.duree_de_vie }} JOUR(S)</strong></p>
-                <button class="mt-4 w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700" style="background-color: darkorange;">Payer</button>
-            </div>
+                <button class="mt-4 w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                    <a href="{% url 'vip' vip_id=vip.id %}">Voir Détails</a>
+             </button>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        {% if messages %}
+                        let messageContent = "";
+                        {% for message in messages %}
+                        messageContent += "{{ message }}" + "\\n";
+                        {% endfor %}
+                        alert(messageContent);
+                        {% endif %}
+                    });
+                </script>
+                 </div>
             {% endfor %}
 
            
@@ -63,6 +76,7 @@
         
         
     </div>
-
+    
+    
 </body>
 </html>

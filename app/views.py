@@ -5,13 +5,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .models import Vip
 from .forms import CustomUserLoginForm
-
+from django.shortcuts import render, get_object_or_404
+from decimal import Decimal
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CustomPasswordChangeForm
 import json
+from datetime import timedelta
+from django.utils.timezone import now
+from app.tasks import ajouter_revenu_journalier
 
 from django.conf import settings
 from django.http import JsonResponse
@@ -52,7 +56,8 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 def vip(request):
-    vip_items = Vip.objects.all()   
+    vip_items = Vip.objects.all() 
+    
     return render(request,'vip.html',{'vip_items': vip_items})
 
 def setting(request):
@@ -109,4 +114,29 @@ def me(request):
     user=request.user
     return render(request, 'me.html',{'user':user})
 
+def vip_detail(request, vip_id):
+    # Récupérer l'objet VIP avec l'ID passé dans l'URL
+    vip = get_object_or_404(Vip, id=vip_id)
+    return render(request, 'vip_detail.html', {'vip': vip})
 
+def payer(request,vip_id):
+    
+    vip = get_object_or_404(Vip, id=vip_id)
+    user = request.user  # Utilisateur actuel
+    user_solde = Decimal(request.user.solde) if isinstance(request.user.solde, str) else request.user.solde
+
+    if user_solde < vip.montant:
+        messages.error(request, "Votre solde est insuffisant.")
+        return render(request, 'vip_detail.html', {'vip': vip})
+        
+    else:   
+    # Si le paiement est validé
+     user.solde = user_solde - vip.montant  # Utiliser Decimal pour l'opération
+    
+     user.save()
+     messages.success(request, "Paiement réussi.")
+    
+     
+
+    ajouter_revenu_journalier.apply_async((user.id, vip.revenu_journalier), eta=now() + timedelta(days=1))
+    

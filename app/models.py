@@ -55,6 +55,7 @@ class Vip(models.Model):
     revenu_journalier = models.DecimalField(max_digits=10, decimal_places=2)
     revenu_annuel = models.DecimalField(max_digits=10, decimal_places=2)
     duree_de_vie = models.IntegerField()
+    url=models.CharField(max_length=1000 ,blank=True,null=True)
 
 
 class withdrawAccount(models.Model):

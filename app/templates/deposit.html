@@ -1,12 +1,57 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Depot</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .fas  { font-size: 25px;
+        color: darkorange;
 
- </head>
-<body>
-   
+    }
+</style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Image -->
+    <div class="relative mb-6">
+        <img src="{% static 'images/affiche1.jpg'%}" alt="Affiche Neodeal" class="w-full h-auto rounded-lg" style="height: 300px;">
+    </div>
+    <div class="container mx-auto p-6 mb-20"> <!-- Ajoutez mb-20 pour l'espace -->
+        <h2 class="text-3xl font-semibold text-center mb-8">Faire un Depot</h2>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<a href="https://pay.lygosapp.com/link/cae2289b-e6ea-4ce0-83fb-a4d8cf80532f" style="color: red; font-size: 25px; border: solid; text-align: center;"> <strong>3000 FCFA</strong></a> 
+ <a href="https://pay.lygosapp.com/link/85fb42fd-b6b5-4eda-9848-9e480dbdeec8"style="color: red; font-size: 25px; border: solid; text-align: center;"><strong>5000 FCFA</strong></a>
+<a href="https://pay.lygosapp.com/link/3d4c9f7b-8a54-4883-af14-27c3aac3b716" style="color: red; font-size: 25px; border: solid; text-align: center;"><strong>10000 FCFA</strong></a>
+<a href="https://pay.lygosapp.com/link/7acb1fa4-7a90-479e-8efd-59ee8e40491d" style="color: red; font-size: 25px; border: solid; text-align: center;"><strong>15000 FCFA</strong></a>
+ <a href="https://pay.lygosapp.com/link/2e881c0d-045a-4255-8f41-10c59ed5352e" style="color: red; font-size: 25px; border: solid; text-align: center;"><strong>25000 FCFA</strong></a>
+ <a href="https://pay.lygosapp.com/link/69b1bb04-5f10-4f53-ba07-a8a1465cbf28" style="color: red; font-size: 25px; border: solid; text-align: center;"><strong>50000 FCFA</strong></a>
+
+<!-- Bottom Taskbar reste inchangé -->
+    </div>
+    
+    
+        <!-- Bottom Taskbar -->
+        <!-- Barre de navigation en bas -->
+    <div class="fixed bottom-0 left-0 w-full bg-white shadow-md p-4">
+        <div class="flex justify-around">
+            <button class="flex items-center text-black font-bold"><a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'historique' %}"><i class="fas fa-history mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-cog mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'me' %}"><i class="fas fa-user mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-users mr-2"></i></a></button>
+            <button class="flex items-center text-black font-bold"><a href="{% url 'setting' %}"><i class="fas fa-sign-out-alt mr-2"></i></a></button>
+        </div>
+    </div>
+    
+        
+        
+    </div>
+
 </body>
 </html>

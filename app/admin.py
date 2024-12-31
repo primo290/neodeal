@@ -39,7 +39,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class VipAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'montant', 'revenu_journalier', 'revenu_annuel', 'duree_de_vie')
+    list_display = ('nom', 'montant', 'revenu_journalier', 'revenu_annuel', 'duree_de_vie', 'url')
     search_fields = ('nom',)
     list_filter = ('duree_de_vie',)
     ordering = ('-revenu_annuel',)
