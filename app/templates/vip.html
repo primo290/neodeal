@@ -35,7 +35,7 @@
                 <p class="text-gray-600">Revenu Annuel: <strong>{{ vip.revenu_annuel }} FCFA</strong></p>
                 <p class="text-gray-600">Durée de Vie: <strong>{{ vip.duree_de_vie }} JOUR(S)</strong></p>
                 <button class="mt-4 w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                    <a href="{% url 'vip' vip_id=vip.id %}">Voir Détails</a>
+                    <a href="{{vip.url}}">Payer {{vip.nom}} </a>
              </button>
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
